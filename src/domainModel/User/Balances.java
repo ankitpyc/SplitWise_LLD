@@ -4,6 +4,13 @@ public class Balances {
     Double totalAmount;
     User user;
 
+    public Balances() {}
+
+    public Balances(Double totalAmount, User user) {
+        this.totalAmount = totalAmount;
+        this.user = user;
+    }
+
     public Double getTotalAmount() {
         return totalAmount;
     }

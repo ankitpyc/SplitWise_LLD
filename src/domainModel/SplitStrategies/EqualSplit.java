@@ -14,11 +14,11 @@ public class EqualSplit implements SplitStrategy {
      * @return Map<User,Double> distribution between different people
      */
     @Override
-    public Map<User, Double> splitExpense(List<User> splitBetween, List<Double> splitAmounts,Double amount) {
-        Map<User,Double> splittedAmounts = new HashMap<>();
+    public Map<String, Double> splitExpense(List<User> splitBetween, List<Double> splitAmounts,Double amount) {
+        Map<String,Double> splittedAmounts = new HashMap<>();
         Double splitAmount = (Double) (amount/splitBetween.size());
         for(User user:splitBetween){
-            splittedAmounts.put(user,splitAmount);
+            splittedAmounts.put(user.getUserId(),splitAmount);
         }
         return splittedAmounts;
     }

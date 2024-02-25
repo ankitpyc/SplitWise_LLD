@@ -14,13 +14,13 @@ public class PercentageSplit implements SplitStrategy {
      * @return Map<User, Double> distribution between different people
      */
     @Override
-    public Map<User, Double> splitExpense(List<User> splitBetween, List<Double> splitAmounts, Double amount) {
-        Map<User, Double> splittedAmounts = new HashMap<>();
+    public Map<String, Double> splitExpense(List<User> splitBetween, List<Double> splitAmounts, Double amount) {
+        Map<String, Double> splittedAmounts = new HashMap<>();
         Double totalAmount = amount;
         for (int i = 0; i < splitBetween.size(); i++) {
             User user = splitBetween.get(i);
             Double sharedAmount = (totalAmount * (splitAmounts.get(i))) / 100.0;
-            splittedAmounts.put(user, sharedAmount);
+            splittedAmounts.put(user.getUserId(), sharedAmount);
         }
         return splittedAmounts;
     }
